@@ -1,7 +1,8 @@
 package db
 
-import( 
+import (
 	"context"
+	"log"
 	"testing"
 	"github.com/stretchr/testify/require"
 )
@@ -11,9 +12,10 @@ func TestCreateAccount(t *testing.T){
 		Balance: 100,
 		Currency: "USD",
 	}
-
+	log.Println(arg)
 	account, err := testQueries.CreateAccount(context.Background(),arg)
-	println(account)
+	log.Println(account)
+
 	require.NoError(t, err)
 	require.NotEmpty(t, account)
 
