@@ -7,7 +7,7 @@ import (
 )
 
 type Account struct {
-	ID        int32     `json:"id"`
+	ID        int64     `json:"id"`
 	Owner     string    `json:"owner"`
 	Balance   int64     `json:"balance"`
 	Currency  string    `json:"currency"`
@@ -15,7 +15,7 @@ type Account struct {
 }
 
 type Entry struct {
-	Code      int64 `json:"code"`
+	ID        int64 `json:"id"`
 	AccountID int64 `json:"account_id"`
 	// can be positive or negative
 	Amount    int64     `json:"amount"`
