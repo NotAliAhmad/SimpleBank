@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-
 	"github.com/lib/pq"
 	db "github.com/techschool/simplebank/db/sqlc"
 	"github.com/techschool/simplebank/util"
@@ -80,8 +79,8 @@ type loginUserRequest struct {
 }
 
 type loginUserResponse struct {
-	AccessToken           string       `json:"access_token"`
-	User                  userResponse `json:"user"`
+	AccessToken string       `json:"access_token"`
+	User        userResponse `json:"user"`
 }
 
 func (server *Server) loginUser(ctx *gin.Context) {
@@ -107,7 +106,7 @@ func (server *Server) loginUser(ctx *gin.Context) {
 		return
 	}
 
-	accessToken,_, err := server.tokenMaker.CreateToken(
+	accessToken, err := server.tokenMaker.CreateToken(
 		user.Username,
 		server.config.AccessTokenDuration,
 	)
@@ -118,8 +117,7 @@ func (server *Server) loginUser(ctx *gin.Context) {
 
 	rsp := loginUserResponse{
 		AccessToken: accessToken,
-		User: newUserResponse(user),
+		User:        newUserResponse(user),
 	}
-	ctx.JSON(http.StatusOK,rsp)
-
-	}
+	ctx.JSON(http.StatusOK, rsp)
+}
