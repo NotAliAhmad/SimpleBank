@@ -52,9 +52,7 @@ func (server *Server) setupRouter(){
 	authRoutes.GET("/accounts", server.listAccount)
 	authRoutes.POST("/transfers", server.createTransfer)
 
-	router.POST("/users", server.createUser)
-	router.POST("/users/login", server.loginUser)
-
+	server.router = router
 }
 
 // Start runs the HTTP server on a specific address.
