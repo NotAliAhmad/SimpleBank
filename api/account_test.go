@@ -26,7 +26,6 @@ func TestGetAccountAPI(t *testing.T) {
 	user,_ := randomUser(t)
 	account := randomAccount(user.Username)
 
-
 	testCases := []struct {
 		name          string
 		accountID     int64

@@ -8,13 +8,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-
 	"github.com/gin-gonic/gin"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/require"
 	mockdb "github.com/techschool/simplebank/db/mock"
 	db "github.com/techschool/simplebank/db/sqlc"
-
 	"github.com/techschool/simplebank/util"
 )
 
